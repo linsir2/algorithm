@@ -6,8 +6,8 @@ public class MinTriangulationPerimeter {
             t[i][i] = 0;
         }
         for (int p = 2; p < n; p++) { //p表示长度，但实际点数为p+1
-            for (int i = 1; i <= n - p + 1; i++) { //i表示起始位置,实际是i-1
-                int j = i + p - 1; //i-1+(p+1)-1， j<=n
+            for (int i = 1; i <= n - p + 1; i++) { //i表示起始位置,n-p代表了起点位置的左边界,i-1<=n-p
+                int j = i + p - 1; //i-1+(p+1)-1， j<=n-1
                 t[i][j] = t[i + 1][j] + perimeter(points[i - 1], points[i], points[j]);
 
                 for (int k = i + 1; k < j; k++) {
